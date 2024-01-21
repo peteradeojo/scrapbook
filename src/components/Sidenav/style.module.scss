@@ -1,0 +1,47 @@
+.SidenavWrapper {
+  min-height: 100vh;
+  grid-column: 1/2;
+  grid-row: 1/1;
+
+  @media only screen and (max-width:478px) {
+    min-height: unset;
+    grid-column: 1/1;
+    grid-row: 1/1;
+  }
+
+  position: relative;
+}
+
+.Sidenav {
+  border-radius: 44px;
+  background: #311565;
+  box-shadow: -9px -9px 18px #2b1258,
+    9px 9px 18px #371872;
+  height: 100%;
+  position: relative;
+
+  .brand {
+    width: 100%;
+  }
+
+  .links {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 16px;
+  }
+
+  @media (max-width: 479px) {
+    height: unset;
+
+    .brand {
+      width: 50%;
+    }
+
+    .links {
+      position: unset;
+      width: 50%;
+    }
+  }
+}

@@ -1,0 +1,112 @@
+$padding: 5px;
+$russian-violet: #481a5bff;
+$uranian-blue: #a5d8ffff;
+$apricot: #ffc9b5ff;
+$drab-dark-brown: #322e18ff;
+$celadon: #a5d0a8ff;
+
+$gradient-top: linear-gradient(0deg, #481a5bff, #a5d8ffff, #ffc9b5ff, #322e18ff, #a5d0a8ff);
+$gradient-right: linear-gradient(90deg, #481a5bff, #a5d8ffff, #ffc9b5ff, #322e18ff, #a5d0a8ff);
+$gradient-bottom: linear-gradient(180deg, #481a5bff, #a5d8ffff, #ffc9b5ff, #322e18ff, #a5d0a8ff);
+$gradient-left: linear-gradient(270deg, #481a5bff, #a5d8ffff, #ffc9b5ff, #322e18ff, #a5d0a8ff);
+$gradient-top-right: linear-gradient(45deg, #481a5bff, #a5d8ffff, #ffc9b5ff, #322e18ff, #a5d0a8ff);
+$gradient-bottom-right: linear-gradient(135deg, #481a5bff, #a5d8ffff, #ffc9b5ff, #322e18ff, #a5d0a8ff);
+$gradient-top-left: linear-gradient(225deg, #481a5bff, #a5d8ffff, #ffc9b5ff, #322e18ff, #a5d0a8ff);
+$gradient-bottom-left: linear-gradient(315deg, #481a5bff, #a5d8ffff, #ffc9b5ff, #322e18ff, #a5d0a8ff);
+
+@mixin shadowed($opacity: 0.66) {
+  box-shadow: -3px 5px 38px 0px rgba(0, 0, 0, $opacity);
+  -webkit-box-shadow: -3px 5px 38px 0px rgba(0, 0, 0, $opacity);
+  -moz-box-shadow: -3px 5px 38px 0px rgba(0, 0, 0, $opacity);
+}
+
+.container {
+  padding: 16px;
+  margin: auto;
+  width: 90%;
+}
+
+@for $i from 0 through 5 {
+  .p-#{$i} {
+    padding: $padding * $i;
+  }
+
+  .px-#{$i} {
+    padding-left: $padding * $i;
+    padding-right: $padding * $i;
+  }
+
+  .py-#{$i} {
+    padding-top: $padding * $i;
+    padding-bottom: $padding * $i;
+  }
+}
+
+.rounded {
+  border-radius: 8px;
+}
+
+.rounded-lg {
+  border-radius: 16px;
+}
+
+.bg-theme {
+  background: $apricot;
+  color: $drab-dark-brown;
+}
+
+.border {
+  border-color: $russian-violet;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.shadow {
+  @include shadowed(0.4)
+}
+
+$heights: (
+  25, 50, 75, 100
+);
+
+@each $i in $heights {
+  .h-#{$i} {
+    height: calc($i/100) * 100%;
+  }
+
+  .h-min-#{$i} {
+    min-height: calc($i/100) * 100%;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  &.between {
+    justify-content: space-between;
+  }
+  &.acenter {
+    align-items: center;
+  }
+}
+
+$rowCount: 10;
+
+@for $i from 1 through $rowCount {
+  .col-#{$i} {
+    width: calc(($i * $rowCount) / 100) * 100%;
+  }
+}
+
+@media screen and (max-width: 478px) {
+  [class*="col-"] {
+    width: 100%;
+  }
+}

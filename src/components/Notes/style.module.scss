@@ -1,0 +1,19 @@
+.title {
+  font-size: 1.4em;
+}
+
+.noteCard {
+  transition: all .5s;
+  min-height: 150px;
+  position: relative;
+}
+
+.noteCard:hover {
+  transform: scale(1.1);
+  z-index: 1000;
+}
+
+.footer {
+  position: absolute;
+  bottom: 5px;
+}
