@@ -14,6 +14,7 @@ import {
 	findNote,
 } from '../../util';
 import { useParams } from 'react-router-dom';
+import { QuillEditor } from '../../components/Editor/quill';
 
 /**
  * @typedef {{
@@ -107,7 +108,7 @@ export default function Note() {
 				)}
 			</div>
 			<div className="container">
-				<Editor
+				{/* <Editor
 					editorState={editorState}
 					editorStyle={{
 						background: '#fff',
@@ -118,11 +119,8 @@ export default function Note() {
 					onEditorStateChange={(editorState) => {
 						setEditorState(editorState);
 					}}
-				/>
-				{/* <textarea
-					disabled
-					value={JSON.stringify(editorState.getCurrentContent())}
 				/> */}
+				<QuillEditor />
 				<button onClick={saveNote}>Save</button>
 			</div>
 		</>
